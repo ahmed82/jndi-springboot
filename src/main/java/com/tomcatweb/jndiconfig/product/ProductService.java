@@ -16,6 +16,7 @@ public class ProductService {
 	public Product fetchProductByid(int id){
 		
 		Optional<Product> product =	productRepository.findById(id);
+		System.out.println(product.get().toString());
 		if (product.isPresent())
 			return product.get();
 		else
