@@ -24,14 +24,11 @@ public class ProductController {
 	
 	@GetMapping(value = "/product")
 	public ResponseEntity<Product> fetchProduct(@RequestParam int id){
-		System.out.println("******************"+ id);
 		Product product = productService.fetchProductByid(id);
-		//System.out.println(product.toString());
+		
 		if (product == null){
-			System.out.println("******************null");
 			return ResponseEntity.notFound().build(); 
 		}else {
-			System.out.println("******************PP");
 			return ResponseEntity.ok().body(product);
 		}
 	}
